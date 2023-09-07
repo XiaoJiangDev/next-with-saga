@@ -1,5 +1,5 @@
 import { all, call, delay, put, take, takeLatest, takeEvery } from 'redux-saga/effects'
-import * as counterEffect from './counter/saga';
+import { workIncrement } from './counter/saga';
 
 // const allEffect: any = [];
 
@@ -12,7 +12,7 @@ import * as counterEffect from './counter/saga';
 
 function* rootSaga() {
   yield all([
-    takeEvery('counter/increment', counterEffect.workIncrement)
+    takeEvery('counter/increment', workIncrement)
   ])
 }
 

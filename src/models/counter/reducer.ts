@@ -4,10 +4,12 @@ export const actionTypes = {
   INCREMENT: 'COUNT/INCREMENT',
   DECREMENT: 'COUNT/DECREMENT',
   RESET: 'COUNT/RESET',
+  LOAD: 'COUNT/LOAD'
 }
 
 const initialState = {
   count: 0,
+  load: false,
 }
 
 function reducer(state: any = initialState, action: any) {
@@ -32,6 +34,12 @@ function reducer(state: any = initialState, action: any) {
       return {
         ...state,
         ...{ count: initialState.count },
+      }
+    
+    case actionTypes.LOAD:
+      return {
+        ...state,
+        ...{ load: !state.load },
       }
 
     default:
