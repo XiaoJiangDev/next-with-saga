@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
-import Image from 'next/image'
 import styles from './index.module.css'
-import { wrapper } from '@/models/store'
 import { useSelector, useDispatch } from 'react-redux'
-import { increment } from '@/models/app/actions'
-// import { watchFetchPost } from '@/models/app/saga'
 
 function Home() {
-  const count = useSelector((state: any) => state.count)
+  const count = useSelector((state: any) => {
+    console.log('state.count', state);
+    return state.counter.count;
+  })
 
   const dispatch = useDispatch();
 
   const handleAdd = () => {
-    dispatch({ type: 'watchIncrement' })
+    dispatch({ type: 'counter/increment' })
   }
 
   return (

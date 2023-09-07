@@ -1,12 +1,13 @@
-import { actionTypes } from './actions'
-import { HYDRATE } from 'next-redux-wrapper'
+import { HYDRATE } from 'next-redux-wrapper';
+
+export const actionTypes = {
+  INCREMENT: 'COUNT/INCREMENT',
+  DECREMENT: 'COUNT/DECREMENT',
+  RESET: 'COUNT/RESET',
+}
 
 const initialState = {
   count: 0,
-  error: false,
-  lastUpdate: 0,
-  light: false,
-  placeholderData: null,
 }
 
 function reducer(state: any = initialState, action: any) {
@@ -16,7 +17,6 @@ function reducer(state: any = initialState, action: any) {
     }
 
     case actionTypes.INCREMENT:
-      console.log('state.count', state.count)
       return {
         ...state,
         ...{ count: state.count + 1 },
